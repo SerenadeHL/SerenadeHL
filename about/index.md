@@ -1,37 +1,30 @@
 ---
 layout: page
-title: About the Theme
+title: About
 tags: [about, Jekyll, theme, moon]
 date: 2016-03-21
 comments: false
 ---
-    
-<center><a href="http://taylantatli.github.io/Moon"><b>Moon</b></a> is a minimal, one column jekyll theme.</center>
 
-## Features
-* Minimal, you can focus on your content
-* Responsive
-* Disqus integration
-* Syntax highlighting
-* Optional post image
-* Social icons
-* Page for sharing projects
-* Optional background image
-* Simple navigation menu
-* MathJax support
+## 个人简介：
 
-## Preview
+* 郝亮
+* Android应用开发工程师
+* 来自山东 现居北京
 
-{% capture images %}
-    https://cloud.githubusercontent.com/assets/754514/14509720/61c61058-01d6-11e6-93ab-0918515ecd56.png
-    https://cloud.githubusercontent.com/assets/754514/14509716/61ac6c8e-01d6-11e6-879f-8308883de790.png
-{% endcapture %}
-{% include gallery images=images caption="Screenshots of Moon Theme" cols=2 %}
+## 联系方式
 
-See a [live version of Moon](http://taylantatli.github.io/Moon) hosted on GitHub.
+<p class="contact">
+ <a href="https://github.com/SerenadeHL" title="Github联系我"><img src="http://www.github.com/favicon.ico" width="24" height="24" style="display:inline-block;vertical-align:middle"></a>
+ <a href="https://coding.net/u/SerenadeHL" title="Coding联系我"><img src="http://tva4.sinaimg.cn/crop.177.83.444.444.50/005CNqf4jw8f1dxztkjsrj30m80gq0sv.jpg" width="22" height="22" style="display:inline-block;vertical-align:middle"></a>
+ <a href="http://weibo.com/2872085797/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="微博联系我"><img src="http://www.sinaimg.cn/blog/developer/wiki/LOGO_32x32.png" width="24" height="24" style="display:inline-block;vertical-align:middle"></a><br/>
+邮箱: SerenadeHL@163.com 
+</p>
 
-## Getting Started
+### 关于本站：
 
-To learn how to install and use this theme check out the [Setup Guide](http://taylantatli.me/Moon/moon-theme/) for more information.
-      
-[Install Moon](https://github.com/TaylanTatli/Moon){: .btn}
+* 搭建于[Coding](https://coding.net/u/SerenadeHL/p/SerenadeHL/git),欢迎Fork
+* 模板及样式来源[Jekyll Themes](http://jekyllthemes.org/)
+
+## 其他
+* 英雄联盟爱好者

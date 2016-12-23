@@ -1,6 +1,6 @@
 # Site
 title:              SerenadeHL
-bio:                ‘Write the code. Change the world.’
+bio:                Write the code Change the world
 description:        “SerenadeHL’s Blog”
 reading_time:       true
 words_per_minute:   200
@@ -37,24 +37,24 @@ disqus_shortname:   taylantatli
   #ad-client:
   #ad-slot:
 #bing-verify:
-#email:
-twitter:            username
-facebook:           username
-github-url:         username
+email:		     SerenadeHL@163.com
+#twitter:            username
+#facebook:           username
+github-url:         SerenadeHL
 #stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
 #linkedin:          username
 #xing:              username
-instagram:          username
+#instagram:          username
 #lastfm:            username
 #tumblr:            username
 #medium:            '@username'
 #pinterest:         username
 #foursquare:        username
-steam:              username
+#steam:              username
 #dribbble:          username
 #youtube:           username
 #soundcloud:        username
-#weibo:             username
+weibo:              能想到的都被起了所以只能叫这个
 #flickr:            username
 #codepen:           username
 #keybase:           username
