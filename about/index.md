@@ -23,7 +23,7 @@ comments: false
 
 ### 关于本站：
 
-* 搭建于[Coding](https://coding.net/u/SerenadeHL/p/SerenadeHL/git),欢迎Fork
+* 搭建于[Coding](https://git.coding.net/SerenadeHL/Serenade.git),欢迎Fork
 * 模板及样式来源[Jekyll Themes](http://jekyllthemes.org/)
 
 ## 其他
