@@ -11,7 +11,7 @@ comments: true
 - 造成的原因：在Android中，一个应用默认是一个线程，而一个线程中会自带一个线程！这个默认线程，称之为主线程或者UI线程，它主要负责用户界面交互逻辑！要求它实时保持较高的反应！如果在主线程中做了耗时操作！例如：I/O网络请求等，那么会出现卡顿的效果，更严重的是会报ANR程序无响应的错误！
 - Activity中耗时操作时间为5秒，BroadcastReceiver中10秒，注意：此说法只是理论的！
 - 解决方法：开启子线程进行耗时操作，注意！子线程中无法更新除了ProgressBar之外的UI，主线程中不能进行耗时操作，操作完成后通过Handler Message进行线程间通信告知主线程更新UI
-![](/Users/Serenade/Desktop/1482130985915_2.png)
+![](leanote://file/getImage?fileId=57e5d030ab64416b5501a3b6)
 
 # Android使用线程的原则
 1. 主线程：可以更新UI，不能执行耗时的操作，不能被阻塞，不能执行网络请求。
@@ -26,25 +26,36 @@ comments: true
 - 创建一个子线程！重写内部的run方法
 - 在子线程中进行耗时操作！I/O网络请求、SDcard、数据库遍历！
 - 主线程中创建一个Handler
-<pre><code>Handler handler = new Handler(){
+```
+Handler handler = new Handler(){
 public void handleMessage(Message msg){
 }
-}</code></pre>
+}
+```
 - 在子线程完成耗时操作的地方，创建一个Message
-<pre><code>Message msg = new Message()</code></pre>
+```
+Message msg = new Message()
+```
 - 子线程调用发信的方法
-<pre><code>handler.sendMessage(msg)</code></pre>
-- 在主线程的``handleMessage(Message msg)``方法处理返回的数据
+```
+handler.sendMessage(msg)
+```
+- 主线程处理返回数据的方法
+```
+handleMessage(Message msg)
+```
 
 # AsyncTask是什么？
 使用子线程执行耗时的操作，通过回调方法把结果返回给主线程，AsyncTask较传统的线程不同的是！它在Android中，使用的是线程+Handler结合成的一个类！使用异步任务，不用再自己写Handler、Message进行线程间通信！直接可以在异步任务类的指定方法中，进行UI控件的更新！
 
 # 如何使用AsyncTask
 1. 定义一个类，继承AsyncTask，同时声明3个泛型
-<pre><code>public class myTask extends AsyncTask``<泛型参数一 Params,泛型参数二 Progress,泛型参数三 Result>``</code></pre>
-	- 泛型参数一：子线程执行任务的请求参数，通常是一个String
-	- 泛型参数二：子线程执行任务的进度，通常是一个Integer
-	- 泛型参数三：子线程执行任务的结果返回类型，根据具体需求而定
+```
+public class myTask extends AsyncTask<Params,Progress,Result>
+```
+	- ``Params``：子线程执行任务的请求参数，通常是一个String
+	- ``Progress``：子线程执行任务的进度，通常是一个Integer
+	- ``Result``：子线程执行任务的结果返回类型，根据具体需求而定
 2. 重写父类的方法
 	- onPreExecute()：初始化
 		- 此方法第一个执行！
