@@ -3,6 +3,7 @@ layout: post
 title: "AsyncTask"
 date: 2016-12-22
 excerpt: "AsyncTask"
+project: false
 tags: Android
 comments: true
 ---
