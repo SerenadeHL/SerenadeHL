@@ -17,7 +17,7 @@ comments: false
 <p class="contact">
  <a href="https://github.com/SerenadeHL" title="Github联系我"><img src="http://www.github.com/favicon.ico" width="24" height="24" style="display:inline-block;vertical-align:middle"></a>
  <a href="https://coding.net/u/SerenadeHL" title="Coding联系我"><img src="http://www.easyicon.net/api/resizeApi.php?id=1188651&size=48" width="31" height="30" style="display:inline-block;vertical-align:middle"></a>
- <a href="http://www.weibo.com/SerenadeHL" title="微博联系我"><img src="http://www.sinaimg.cn/blog/developer/wiki/LOGO_32x32.png" width="28" height="28" style="display:inline-block;vertical-align:middle"></a><br/>
+ <a href="http://www.weibo.com/SerenadeHL" title="微博联系我"><img src="http://www.sinaimg.cn/blog/developer/wiki/LOGO_32x32.png" width="30" height="30" style="display:inline-block;vertical-align:middle"></a><br/>
 邮箱: SerenadeHL@163.com 
 </p>
 
