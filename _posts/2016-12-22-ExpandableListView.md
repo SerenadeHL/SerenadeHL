@@ -28,10 +28,10 @@ ListView --> AbsListView --> AdapterView
 # 指示器的状态图片
 - state_expanded：是否是展开状态，注意，该属性在XML中不会提示！但是存在！需要手动写！！
 
-```
-<item android:drawable="@drawable/bottom" android:state_expanded="true"></item>
-<item android:drawable="@drawable/right"></item>
-```
+    ```
+    <item android:drawable="@drawable/bottom" android:state_expanded="true"></item>
+    <item android:drawable="@drawable/right"></item>
+    ```
 
 # ExpandableListView使用特定的Adapter
 实现ExpandableAdapter的三种方式
