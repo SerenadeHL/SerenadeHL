@@ -33,6 +33,7 @@ ListView --> AbsListView --> AdapterView
 
 # ExpandableListView使用特定的Adapter
 实现ExpandableAdapter的三种方式
+
 1. 扩展BaseExpandableListAdpter实现ExpandableAdapter。
 2. 使用SimpleExpandableListAdpater将两个List集合包装成ExpandableAdapter
 3. 使用SimpleCursorTreeAdapter将Cursor中的数据包装成SimpleCuroTreeAdapter 本节示例使用的是第一个，扩展BaseExpandableListAdpter，我们需要重写该类中的相关方法。
