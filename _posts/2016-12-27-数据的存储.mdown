@@ -1,0 +1,74 @@
+---
+layout: post
+title: "数据的存储"
+date: 2016-12-27
+excerpt: "数据的存储"
+tags: Android
+comments: true
+---
+
+# Shared Preferences
+1. 特点
+    - 存放轻量级的数据
+    - 本质上是用xml的格式存数据，通过键值对的方式对数据进行读写
+    - 应用程序被卸载后，文件也会被删除
+2. 存储的数据类型
+    - boolean
+    - int
+    - String
+    - long
+    - float
+3. 存储路径
+    ``data/data/应用程序包名/shared_prefs/***.xml``
+4. 存储数据
+    1. 得到SharedPreferences对象
+        ```
+        /**
+         * name 文件的名称（不需要写后缀名）
+         * mode 文件的操作模式（Context.MODE_PRIVATE 文件只能被当前应用程序访问，并且是以覆盖的方式去写入，如果key相同，value值会覆盖之前的数据）
+         */
+        SharedPreferences sp_write = getSharedPreferences("settings",Context.MODE_PRIVATE);
+        ```
+        或者
+        ```
+        /**
+         * 不需要填写文件名称，自动保存为当前Activity的类名
+         * mode 文件的操作模式（同上）
+         */
+        SharedPreferences sp_write = getPreferences(Context.MODE_PRIVATE);
+        ```
+    2. 得到SharedPreferences的编辑对象
+        ```
+        Editor editor = sp_write.edit();
+        ```
+    3. 向SharedPreferences存入数据
+        ```
+        editor.putString("msg","你已经更改了TextView的属性");
+        ```
+    4. 提交数据
+        ```
+        editor.commit();
+        ```
+5. 读取数据
+    1. 得到SharedPreferences对象
+        ```
+        SharedPreferences sp_read = getSharedPreferences("settings",Context.MODE_PRIVATE);
+        ```
+    2. 读取数据
+        ```
+        /**
+         * key      要读取的值的key
+         * defValue 没有对应key时的默认值
+         */
+        String msg = sp_read.getString("msg","读取属性失败");
+        ```
+
+
+
+# 内部存储
+
+# 外部存储
+
+# SQLite数据库
+
+# 网络连接
