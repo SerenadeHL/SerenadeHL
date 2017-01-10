@@ -59,12 +59,12 @@ ActionBar是Android3.0之后出现的，在Android3.0之前叫TitleBar，显示�
 			2. 在Activity的``onCreateOptionsMenu()``方法中：
          	
 				```
-         		//得到SearchView所在的菜单Item
-         		MenuItem item = menu.findItem(R.id.***);
-         		//通过菜单Item对象，得到SearchView控件
-         		SearchView searchView = (SearchView) item.getActionView();
-         		//为SearchView设置监听器
-         		searchView.setOnClickListener();
+				//得到SearchView所在的菜单Item
+				MenuItem item = menu.findItem(R.id.***);
+				//通过菜单Item对象，得到SearchView控件
+				SearchView searchView = (SearchView) item.getActionView();
+				//为SearchView设置监听器
+				searchView.setOnClickListener();
 				```
 				
 	2. ``actionViewClass``：
