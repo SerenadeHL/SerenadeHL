@@ -34,9 +34,9 @@ comments: true
             - ``getCount()``：返回当前数据源的总数
             - ``isViewFromObject(View,Object)``：判断当前的ViewPager加载的页面，instantia
 - 使用步骤
-    1. 在布局页面中，创建标签``<android.support.v4.view.ViewPager/>``
-    2. 在代码中增加要显示的数据源
-    3. 创建Adapter继承FragmentPageAdapter并重写四个方法
+	1. 在布局页面中，创建标签``<android.support.v4.view.ViewPager/>``
+	2. 在代码中增加要显示的数据源
+	3. 创建Adapter继承FragmentPageAdapter并重写四个方法
 
         ```
         @Override
