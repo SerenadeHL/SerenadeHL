@@ -54,9 +54,9 @@ ActionBar是Android3.0之后出现的，在Android3.0之前叫TitleBar，显示�
 	- 可编辑的动作项，如``SearchView``可以直接显示在ActionBar上
 - 添加方式(两种)：
 	1. ``actionViewClass``：
-  		- 步骤：
-      		1. 在菜单页面中，通过``android:actionViewClass="android.widget.SearchView"``引用
-         	2. 在Activity的``onCreateOptionsMenu()``方法中：
+		- 步骤：
+			1. 在菜单页面中，通过``android:actionViewClass="android.widget.SearchView"``引用
+			2. 在Activity的``onCreateOptionsMenu()``方法中：
          	
 				```
          		//得到SearchView所在的菜单Item
@@ -67,10 +67,10 @@ ActionBar是Android3.0之后出现的，在Android3.0之前叫TitleBar，显示�
          		searchView.setOnClickListener();
 				```
 				
-  	2. ``actionViewClass``：
-  		- 步骤：
-	  		1. 在菜单页面中, 通过``android:actionLayout="@layout/****"``引用
-	  		2. 在Activity的``onCreateOptionsMenu()``方法中:
+	2. ``actionViewClass``：
+		- 步骤：
+			1. 在菜单页面中, 通过``android:actionLayout="@layout/****"``引用
+			2. 在Activity的``onCreateOptionsMenu()``方法中:
 		  		
 		  		```
 		  		//得到View所在的菜单Item
