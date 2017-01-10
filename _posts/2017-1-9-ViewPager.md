@@ -33,7 +33,7 @@ comments: true
             - ``destroyItem(ViewGroup,int,Object)``：根据指定的下标，移除ViewPager中的页面
             - ``getCount()``：返回当前数据源的总数
             - ``isViewFromObject(View,Object)``：判断当前的ViewPager加载的页面，instantia
-- 使用步骤
+- ``FragmentPagerAdapter``使用步骤
 	1. 在布局页面中，创建标签``<android.support.v4.view.ViewPager/>``
 	2. 在代码中增加要显示的数据源
 	3. 创建Adapter继承FragmentPagerAdapter并重写四个方法
@@ -73,14 +73,15 @@ comments: true
         viewPager.setAdapter(adapter);
         ```
         
-- FragmentPagerAdapter和FragmentStatePagerAdapter
-	1. 父类都是PagerAdapter
-	2. 针对Fragment来填充数据，每一个页面都是一个Fragment
-	3. FragmentPagerAdapter可以有预加载的功能，一般使用在静态Fragment中，会预先加载几个页面存入到内存中，如果数据量大的页面，建议使用FragmentStatePagerAdapter
-	4. FragmentStatePagerAdapter只加载自己的页面，如果页面移动，移除的页面会被内存销毁
-- 使用的步骤：
+- ``FragmentStatePagerAdapter``使用的步骤：
 	1. 必须要提供构造方法
 	2. 必须要重写父类的两个方法
 		1. ``getCount()``：得到当前数据源的总数量
 		2. ``getItem()``：返回指定下标对应的Fragment
 	3. Fragment必须是v4包中的
+
+- ``FragmentPagerAdapter``和``FragmentStatePagerAdapter``
+	1. 父类都是PagerAdapter
+	2. 针对Fragment来填充数据，每一个页面都是一个Fragment
+	3. FragmentPagerAdapter可以有预加载的功能，一般使用在静态Fragment中，会预先加载几个页面存入到内存中，如果数据量大的页面，建议使用FragmentStatePagerAdapter
+	4. FragmentStatePagerAdapter只加载自己的页面，如果页面移动，移除的页面会被内存销毁
