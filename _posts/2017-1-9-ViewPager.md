@@ -8,7 +8,7 @@ comments: true
 ---
 
 # ViewPager
-- 包：``android.support.v4.view.ViewPager
+- 包：``android.support.v4.view.ViewPager``
 - 特点：
     1. ViewPager继承于ViewGroup，所以说ViewPager是一个容器，可以添加多个View
     2. ViewPager需要通过PageAdapter来填充数据
