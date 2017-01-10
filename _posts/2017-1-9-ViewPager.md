@@ -12,7 +12,7 @@ comments: true
 - 特点：
     1. ViewPager继承于ViewGroup，所以说ViewPager是一个容器，可以添加多个View
     2. ViewPager需要通过PageAdapter来填充数据
-    3. 一般情况下，ViewPager和Fragment一起使用，适配器为``FragmentPageAdapter``和``FragmentStatePageAdapter``
+    3. 一般情况下，ViewPager和Fragment一起使用，适配器为``FragmentPagerAdapter``和``FragmentStatePageAdapter``
 - 适配器
     - BaseAdapter：基础适配器抽象类
         - 常用子类：ArratAdapter、SimpleAdapter
@@ -27,7 +27,7 @@ comments: true
             - ``View newView()``：返回Item对应的视图
             - ``void bindView()``：初始化视图中的控件并且为控件赋值
     - PagerAdapter：是一个抽象类，用于填充ViewPager的适配器
-        - 常用子类：FragmentPageAdapter、FragmentStatePageAdapter
+        - 常用子类：FragmentPagerAdapter、FragmentStatePageAdapter
         - 需要重写的方法：
             - ``instantiateItem(ViewGroup,int)``：根据指定的下标，创建ViewPager中的页面
             - ``destroyItem(ViewGroup,int,Object)``：根据指定的下标，移除ViewPager中的页面
@@ -36,7 +36,7 @@ comments: true
 - 使用步骤
 	1. 在布局页面中，创建标签``<android.support.v4.view.ViewPager/>``
 	2. 在代码中增加要显示的数据源
-	3. 创建Adapter继承FragmentPageAdapter并重写四个方法
+	3. 创建Adapter继承FragmentPagerAdapter并重写四个方法
 
         ```
         @Override
@@ -71,3 +71,15 @@ comments: true
         MyAdapter adapter = new MyAdapter(data, this);
         viewPager.setAdapter(adapter);
         ```
+        
+- FragmentPagerAdapter和FragmentStatePagerAdapter
+	1. 父类都是PagerAdapter
+	2. 针对Fragment来填充数据，每一个页面都是一个Fragment
+	3. FragmentPagerAdapter可以有预加载的功能，一般使用在静态Fragment中，会预先加载几个页面存入到内存中，如果数据量大的页面，建议使用FragmentStatePagerAdapter
+	4. FragmentStatePagerAdapter只加载自己的页面，如果页面移动，移除的页面会被内存销毁
+- 使用的步骤：
+	1. 必须要提供构造方法
+	2. 必须要重写父类的两个方法
+		1. ``getCount()``：得到当前数据源的总数量
+		2. ``getItem()``：返回指定下标对应的Fragment
+	3. Fragment必须是v4包中的
