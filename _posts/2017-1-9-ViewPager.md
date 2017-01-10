@@ -65,6 +65,7 @@ comments: true
             return view == object;
         }
         ```
+        
     4. 在代码中，定义适配器，并且设置适配器
 
         ```

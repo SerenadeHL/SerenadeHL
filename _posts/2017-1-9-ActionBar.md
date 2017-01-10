@@ -66,6 +66,7 @@ ActionBar是Android3.0之后出现的，在Android3.0之前叫TitleBar，显示�
          		//为SearchView设置监听器
          		searchView.setOnClickListener();
 				```
+				
   	2. ``actionViewClass``：
   		- 步骤：
 	  		1. 在菜单页面中, 通过``android:actionLayout="@layout/****"``引用
@@ -88,45 +89,47 @@ ActionBar是Android3.0之后出现的，在Android3.0之前叫TitleBar，显示�
 
 1. 得到ActionBar对象，并且设置导航模式为``TABS``
 
-```
-ActionBar actionBar = getActionBar();
-/**
- * mode  模式
- * NAVIGATION_MODE_STANDARD   标准模式
- * NAVIGATION_MODE_LIST       标签模式
- * NAVIGATION_MODE_TABS       Tab标签模式
- */
-actionBar.setNavigationMode(int mode);
-```
+	```
+	ActionBar actionBar = getActionBar();
+	/**
+	 * mode  模式
+	 * NAVIGATION_MODE_STANDARD   标准模式
+	 * NAVIGATION_MODE_LIST       标签模式
+	 * NAVIGATION_MODE_TABS       Tab标签模式
+	 */
+	actionBar.setNavigationMode(int mode);
+	```
+
 2. 让当前类实现``TabListener``接口，重写3个方法
 
-```
-@Override
-public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-    //TODO 选择Tab的事件
-}
+	```
+	@Override
+	public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+	    //TODO 选择Tab的事件
+	}
+	
+	@Override
+	public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+	    // TODO 取消选择Tab事件
+	}
+	
+	@Override
+	public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+	    //TODO 重新选择Tab事件
+	}
+	```
 
-@Override
-public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-    // TODO 取消选择Tab事件
-}
-
-@Override
-public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-    //TODO 重新选择Tab事件
-}
-```
 3. 创建每个Tab项，并且增加到actionBar中
 
-```
-ActionBar.Tab tab = actionBar.newTab();
-tab.setText("新闻");//设置显示的文字
-tab.setIcon(R.mipmap.ic_launcher);//设置显示的图标
-tab.setTabListener(this);//设置监听器
-//将创建的Tab项添加到ActionBar当中
-/**
- * tab          Tab项
- * setSelected  设置是否默认选中
- */
-actionBar.addTab(tab,true);
-```
+	```
+	ActionBar.Tab tab = actionBar.newTab();
+	tab.setText("新闻");//设置显示的文字
+	tab.setIcon(R.mipmap.ic_launcher);//设置显示的图标
+	tab.setTabListener(this);//设置监听器
+	//将创建的Tab项添加到ActionBar当中
+	/**
+	 * tab          Tab项
+	 * setSelected  设置是否默认选中
+	 */
+	actionBar.addTab(tab,true);
+	```
