@@ -85,3 +85,16 @@ comments: true
 	2. 针对Fragment来填充数据，每一个页面都是一个Fragment
 	3. FragmentPagerAdapter可以有预加载的功能，一般使用在静态Fragment中，会预先加载几个页面存入到内存中，如果数据量大的页面，建议使用FragmentStatePagerAdapter
 	4. FragmentStatePagerAdapter只加载自己的页面，如果页面移动，移除的页面会被内存销毁
+
+# PageTitleStrip
+- 在布局文件中，把它作为ViewPager的子标签出现
+- 通过PagerAdapter中的``getPageTitle(int n)``方法来添加标题
+
+# PagerTabStrip
+- ``PagerTabStrip``和``PageTitleStrip``的区别：
+	1. PageTitleStrip：不能和用户交互，PagerTabStrip：可以和用户交互
+	2. PagerTabStrip：会在标题下面显示一条下划线
+- 方法：
+	- ``setDrawFullUnderline(boolean)``：是否设置默认下划线
+	- ``setBackgroundColor()``：设置``PagerTabStrip``的背景颜色
+	- ``setTabIndicatorColor()``：设置指示器颜色
