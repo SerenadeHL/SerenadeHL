@@ -57,7 +57,7 @@ comments: true
 		
 		```
 		/**
-		 * id				通知的Id(可以为任意数字，但是必须是唯一的)
+		 * id		通知的Id(可以为任意数字，但是必须是唯一的)
 		 * notification		通知
 		 */
 		manager.notify(id, notification);
@@ -78,7 +78,7 @@ comments: true
 		/**
 		 * max				进度条的最大值
 		 * progress			当前进度值
-		 * indeterminate	是否为不确定型进度条，true为不确定(模糊)，false为确定(精确)
+		 * indeterminate		是否为不确定型进度条，true为不确定(模糊)，false为确定(精确)
 		 */
 		builder.setProgress(max, progress, indeterminate);
 		Notification notification = builder. build();
@@ -88,7 +88,7 @@ comments: true
 		
 		```
 		/**
-		 * id				通知的Id(可以为任意数字，但是必须是唯一的)
+		 * id			通知的Id(可以为任意数字，但是必须是唯一的)
 		 * notification		通知
 		 */
 		manager.notify(id, notification);
@@ -118,7 +118,7 @@ comments: true
 		
 		```
 		/**
-		 * id				通知的Id(可以为任意数字，但是必须是唯一的)
+		 * id			通知的Id(可以为任意数字，但是必须是唯一的)
 		 * notification		通知
 		 */
 		manager.notify(id, notification);
@@ -148,7 +148,7 @@ comments: true
 		
 		```
 		/**
-		 * id				通知的Id(可以为任意数字，但是必须是唯一的)
+		 * id			通知的Id(可以为任意数字，但是必须是唯一的)
 		 * notification		通知
 		 */
 		manager.notify(id, notification);
@@ -168,7 +168,7 @@ comments: true
 		builder.set***();
 		/**
 		 * packageName	包名，可以通过getPackageName()获得
-		 * resId		布局页面的Id
+		 * resId			布局页面的Id
 		 */
 		RemoteViews views = new RemoteViews(String packageName, int resId);
 		//设置控件上显示的内容
@@ -182,7 +182,7 @@ comments: true
 		
 		```
 		/**
-		 * id				通知的Id(可以为任意数字，但是必须是唯一的)
+		 * id			通知的Id(可以为任意数字，但是必须是唯一的)
 		 * notification		通知
 		 */
 		manager.notify(id, notification);
