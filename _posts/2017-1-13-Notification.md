@@ -57,7 +57,7 @@ comments: true
 		
 		```
 		/**
-		 * id		通知的Id(可以为任意数字，但是必须是唯一的)
+		 * id			通知的Id(可以为任意数字，但是必须是唯一的)
 		 * notification		通知
 		 */
 		manager.notify(id, notification);
