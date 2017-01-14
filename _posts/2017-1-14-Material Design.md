@@ -40,48 +40,46 @@ snackbar.show();
 	1. 计算虚拟按键的高度，使SnackBar在其上方弹出
 		
 		```
-	 /**
-     * 获取屏幕原始尺寸高度，包括虚拟功能键高度
-     */
-    public static int getRawScreenHeight(Context context) {
-        int dpi = 0;
-        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        Display display = windowManager.getDefaultDisplay();
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        @SuppressWarnings("rawtypes")
-        Class c;
-        try {
-            c = Class.forName("android.view.Display");
-            @SuppressWarnings("unchecked")
-            Method method = c.getMethod("getRealMetrics", DisplayMetrics.class);
-            method.invoke(display, displayMetrics);
-            dpi = displayMetrics.heightPixels;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return dpi;
-    }
-    /**
-     * 获取屏幕高度
-     *
-     * @return 返回当前屏幕高度
-     */
-    public static int getScreenHeight(Context context) {
-        WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        DisplayMetrics metrics = new DisplayMetrics();
-        manager.getDefaultDisplay().getMetrics(metrics);
-        return metrics.heightPixels;
-    }
-    /**
-     * 获取虚拟按键栏的高度(有虚拟按键栏时有值,没有虚拟按键栏时返回0)
-     */
-    public static int getBottomStatusHeight(Context context) {
-        int totalHeight = getRawScreenHeight(context);
-
-        int contentHeight = getScreenHeight(context);
-
-        return totalHeight - contentHeight;
-    }
+		/**
+		 * 获取屏幕原始尺寸高度，包括虚拟功能键高度
+		 */
+		public static int getRawScreenHeight(Context context) {
+		    int dpi = 0;
+		    WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+		    Display display = windowManager.getDefaultDisplay();
+		    DisplayMetrics displayMetrics = new DisplayMetrics();
+		    @SuppressWarnings("rawtypes")
+		    Class c;
+		    try {
+		        c = Class.forName("android.view.Display");
+		        @SuppressWarnings("unchecked")
+		        Method method = c.getMethod("getRealMetrics", DisplayMetrics.class);
+		        method.invoke(display, displayMetrics);
+		        dpi = displayMetrics.heightPixels;
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    }
+		    return dpi;
+		}
+		/**
+		 * 获取屏幕高度
+		 *
+		 * @return 返回当前屏幕高度
+		 */
+		public static int getScreenHeight(Context context) {
+		    WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+		    DisplayMetrics metrics = new DisplayMetrics();
+		    manager.getDefaultDisplay().getMetrics(metrics);
+		    return metrics.heightPixels;
+		}
+		/**
+		 * 获取虚拟按键栏的高度(有虚拟按键栏时有值,没有虚拟按键栏时返回0)
+		 */
+		public static int getBottomStatusHeight(Context context) {
+		    int totalHeight = getRawScreenHeight(context);
+		    int contentHeight = getScreenHeight(context);
+		    return totalHeight - contentHeight;
+		}
 		```
 		
 	2. 弹出SnackBar的同时，隐藏虚拟按键；消失SnackBar的同时显示虚拟按键
