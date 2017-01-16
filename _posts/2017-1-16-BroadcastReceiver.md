@@ -86,7 +86,7 @@ comments: true
 				
 				```
 				/**
-				 * intent					intent对象
+				 * intent				intent对象
 				 * receiverPermisson	权限
 				 */
 				context.sendOrderedBroadcast(Intent intent, String receiverPermisson);
