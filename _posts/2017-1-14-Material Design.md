@@ -27,7 +27,12 @@ CoordinatorLayout是design包里功能强大的一个控件,搭配上其他的�
 - 作为顶层布局
 - 调度协调子布局
 
-### s
+### 注意
+- CoordinatorLayout包含的子视图中带有滚动属性的View需要设置``app:layout_behavior``属性
+
+	```
+	app:layout_behavior="@string/appbar_scrolling_view_behavior"
+	```
 
 ***
 
@@ -155,6 +160,26 @@ snackbarLayout.addView(add_view,index,p);
 
 ***
 
+## ToolBar
+
+### 方法
+- ````：
+- ````：
+- ````：
+- ````：
+- ````：
+- ````：
+- ````：
+
+### 注意
+- 我们在使用Toolbar时候需要先隐藏掉系统原先的导航栏，网上很多人都说给Activity设置一个NoActionBar的Theme。但个人觉得有点小题大做了，所以这里我直接在BaseActivity中调用 ``supportRequestWindowFeature(Window.FEATURE_NO_TITLE)``去掉了默认的导航栏（注意，我的BaseActivity是继承了AppCompatActivity的，如果是继承Activity就应该调用 ``requestWindowFeature(Window.FEATURE_NO_TITLE)``)
+- 如果你想修改标题和子标题的字体大小、颜色等，可以调用``setTitleTextColor``、``setTitleTextAppearance``、``setSubtitleTextColor``、``setSubtitleTextAppearance``这些API
+- 自定义的View位于 title 、 subtitle 和 actionmenu 之间，这意味着，如果 title 和 subtitle 都在，且 actionmenu选项 太多的时候，留给自定义View的空间就越小
+- 导航图标和app logo的区别在哪？如果你只设置导航图标（or app logo）和title、subtitle会发现app logo和title、subtitle的间距比较小，看起来不如导航图标与它们两搭配美观
+
+***
+
+
 ## NavigationView
 
 
@@ -175,4 +200,7 @@ snackbarLayout.addView(add_view,index,p);
 
 ***
 
-# TabLayout
+## TabLayout
+
+![](http://p1.bqimg.com/567571/68c08c4c7b8d37bf.png)
+
