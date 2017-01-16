@@ -130,8 +130,8 @@ comments: true
 		- 在Activity的``onCreate()``方法中注册
 		
 			```
-			IntentFilter filter = new IntentFilter("this.is.a.boradcast");
-			MyReceiver recevier = new MyReceiver();
+		IntentFilter filter = new IntentFilter("this.is.a.boradcast");
+		MyReceiver recevier = new MyReceiver();
 	      registerReceiver(recevier, filter);
 			```
 			
