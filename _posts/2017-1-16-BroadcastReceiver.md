@@ -102,11 +102,11 @@ comments: true
 2. 重写父类的``onReceive(Context context, Intent intent)``方法
 	
 	```
-@Override
-   public void onReceive(Context context, Intent intent) {
-        String msg = intent.getStringExtra("msg");
-        Toast.makeText(context, "接收到了广播,msg：" + msg, Toast.LENGTH_SHORT).show();
-    }
+	@Override
+	public void onReceive(Context context, Intent intent) {
+	    String msg = intent.getStringExtra("msg");
+	    Toast.makeText(context, "接收到了广播,msg：" + msg, Toast.LENGTH_SHORT).show();
+	}
 	```
 	
 3. 注册广播
@@ -130,9 +130,9 @@ comments: true
 		- 在Activity的``onCreate()``方法中注册
 		
 			```
-		IntentFilter filter = new IntentFilter("this.is.a.boradcast");
-		MyReceiver recevier = new MyReceiver();
-	      registerReceiver(recevier, filter);
+			IntentFilter filter = new IntentFilter("this.is.a.boradcast");
+			MyReceiver recevier = new MyReceiver();
+			registerReceiver(recevier, filter);
 			```
 			
 		- 在Activity的``onDestory()``方法中解除注册
