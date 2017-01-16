@@ -24,6 +24,107 @@ comments: true
 1. 监听系统的广播，也可以监听自己的广播，并且做出响应
 	1. 监听自己的广播(自己发送，自己接收)
 	2. 系统广播
+		- 监测电池电量(动态注册)
+			- action：``Intent.ACTION_BATTERY_CHANGED``
+			- 静态注册：``<action android:name="android.intent.action.BATTERY_CHANGED"/>``
+				
+				```
+				//1. 得到当前的系统电量等级
+				int level = intent.getIntExtra("level", 100);
+				//2. 得到系统总电量
+				int total = intent.getIntExtra("scale", 100);
+				//3. 计算当前电量的百分比
+				int current = level * 100 / total;
+				Toast.makeText(context, "当前电量为：" + current, Toast.LENGTH_SHORT).show();
+				```
+				
+		- 监测网络状态(动态注册)
+			- action：``ConnectivityManager.CONNECTIVITY_ACTION``或``android.net.conn.CONNECTIVITY_CHANGE``
+			- 静态注册：``<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />``
+			- 权限：``<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />``
+				
+				```
+				//1. 获取链接管理器
+				ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+				//2. 获取网络状态
+				NetworkInfo info = manager.getActiveNetworkInfo();
+				if (info != null) {
+				    if (info.isConnected()) {
+				        Toast.makeText(context, "网络连接成功", Toast.LENGTH_SHORT).show();
+				
+				    } else {
+				        Toast.makeText(context, "网络连接异常", Toast.LENGTH_SHORT).show();
+				    }
+				} else if (info == null) {
+				    Toast.makeText(context, "网络连接异常", Toast.LENGTH_SHORT).show();
+				}
+				```
+				
+		- 监测用户拨打电话(静态注册)
+			- action：``Intent.ACTION_NEW_OUTGOING_CALL``或``android.intent.action.NEW_OUTGOING_CALL``
+			- 静态注册：``<action android:name="android.intent.action.NEW_OUTGOING_CALL"/>``
+			- 权限：``<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />``
+				
+				```
+				
+				```
+				
+		- 监测来电状态(静态注册)
+			- action：``android.intent.action.PHONE_STATE``
+			- 静态注册：``<action android:name="android.intent.action.PHONE_STATE" />``
+			- 权限：``<uses-permission android:name="android.permission.READ_PHONE_STATE"/>``
+				
+				```
+				//1. 获取电话管理器对象
+				TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+				//2. 获得来电号码
+				Bundle bundle = intent.getExtras();
+				String number = bundle.getString(TelephonyManager.EXTRA_INCOMING_NUMBER);
+				//3. 获取电话的状态
+				int state = manager.getCallState();
+				switch (state) {
+				//挂断状态
+				case TelephonyManager.CALL_STATE_IDLE:
+				    Log.e("挂断：",number);
+				    break;
+				//接听状态
+				case TelephonyManager.CALL_STATE_OFFHOOK:
+				    Log.e("接听：",number);
+				    break;
+				//响铃状态
+				case TelephonyManager.CALL_STATE_RINGING:
+				    Log.e("响铃：",number);
+				    break;
+            }
+				```
+				
+		- 监测接收的短信
+			- action：``android.provider.Telephony.SMS_RECEIVED``
+			- 静态监测：``<action android:name="android.provider.Telephony.SMS_RECEIVED" />``
+			- 权限：``<uses-permission android:name="android.permission.RECEIVE_SMS" />``
+				
+				```
+				//1. 获取Bundle对象
+				Bundle bundle = intent.getExtras();
+				//2. 获取短信Object数组
+				Object[] pdus = (Object[]) bundle.get("pdus");
+				//3. 循环读取数据
+				for (Object pdu : pdus) {
+				    SmsMessage message = SmsMessage.createFromPdu((byte[]) pdu, null);
+				    //获取短信的发送者
+				    String sender = message.getDisplayOriginatingAddress();
+				    //获取短信的内容
+				    String body = message.getMessageBody();
+				    //获取短信的接收时间
+				    long millis = message.getTimestampMillis();
+				    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+				    String date = sdf.format(new Date(millis));
+				    Log.e("sender",sender);
+				    Log.e("body",body);
+				    Log.e("date",date);
+				}
+				```
+				
 2. 可以通过广播接收者将数据返回
 
 # 发送广播
@@ -91,6 +192,12 @@ comments: true
 				 */
 				context.sendOrderedBroadcast(Intent intent, String receiverPermisson);
 				```
+			
+			5. 拦截广播
+				
+				```
+				abortBroadcast();
+				```
 
 	3. 粘性广播
 
@@ -151,7 +258,7 @@ comments: true
 			- 动态注册是局部的，是应用程序内部的
 
 # 注意
-1. 广播接收者的生命周期是非常短暂的，在接收到广播的时候创建，onReceive()方法结束之后销毁
-2. 广播接收者中不要做一些耗时的工作，否则会弹出Application No Response错误对话框
-3. 最好也不要在广播接收者中创建子线程做耗时的工作，因为广播接收者被销毁后进程就成为了空进程，很容易被系统杀掉
-4. 耗时的较长的工作最好放在服务中完成
+1. 广播接收者的生命周期是非常短暂的，只有10s，在接收到广播的时候创建，onReceive()方法结束之后销毁
+2. 广播接收者中不要做一些耗时的工作，否则会弹出Application No Response错误对话框，因为它本身是主线程
+3. 最好也不要在广播接收者中创建子线程做耗时的工作，因为广播接收者被销毁后线程就成为了空线程，很容易被系统杀掉
+4. 耗时的较长的工作最好放在服务中完成，我们只需要在广播接收者中开启服务即可
