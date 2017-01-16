@@ -58,10 +58,38 @@ comments: true
 			4. 发送广播
 				
 				```
-				context.sendBroadcast(Intent intent)
+				context.sendBroadcast(Intent intent);
 				```
 		
 	2. 有序广播
+		- 过滤器
+		- 传递的内容
+		- 权限
+		- 步骤
+			1. 得到Intent意图对象
+
+				```
+				Intent intent = new Intent();
+				```
+				
+			2. 设置频道
+			
+				```
+				intent.setAction("this is a boradcast");
+				```
+				
+			3. 设置内容
+			 
+				```
+				intent.putExtra("msg","这是一条广播");
+				```
+				
+			4. 发送广播
+				
+				```
+				context.sendOrderedBroadcast(Intent intent,);
+				```
+
 	3. 粘性广播
 
 # 接收广播
@@ -74,28 +102,41 @@ comments: true
 2. 重写父类的``onReceive(Context context, Intent intent)``方法
 	
 	```
-	@Override
+@Override
    public void onReceive(Context context, Intent intent) {
         String msg = intent.getStringExtra("msg");
-        Toast.makeText(context, "接收到了广播,msg:" + msg, Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "接收到了广播,msg：" + msg, Toast.LENGTH_SHORT).show();
     }
 	```
 	
 3. 注册广播
 	1. 静态注册
 		
-		```
-		<!--静态方式注册广播接收者，android:name指定当前注册的是哪个接收者，全类名-->
-        <receiver android:name=".MyReceiver">
-            <intent-filter>
-                <action android:name="this is a boradcast" />
-            </intent-filter>
-        </receiver>
-		```
+		- 在清单文件中注册``<receiver/>``节点
+		
+			```
+			<!--静态方式注册广播接收者，android:name指定当前注册的是哪个接收者，全类名-->
+	        <receiver android:name=".MyReceiver">
+	            <intent-filter>
+	                <action android:name="this.is.a.boradcast" />
+	            </intent-filter>
+	        </receiver>
+			```
+			
+		- 注意
+			- 静态注册是全局的，即使应用程序没有启动，只要没有卸载，就可以监听到指定广播
 		
 	2. 动态注册
+		- 在Activity的``onCreate()``方法中注册
 		
-		```
-		IntentFilter filter = new IntentFilter("this is a boradcast");
-       registerReceiver(new MyReceiver(),filter);
-		```
+			```
+			IntentFilter filter = new IntentFilter("this.is.a.boradcast");
+			MyReceiver recevier = new MyReceiver();
+	      registerReceiver(recevier, filter);
+			```
+			
+		- 在Activity的``onDestory()``方法中解除注册
+			
+			```
+			unregisterReceiver(recevier);
+			```
