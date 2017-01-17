@@ -162,14 +162,32 @@ snackbarLayout.addView(add_view,index,p);
 
 ## ToolBar
 
+### 使用
+
+```
+Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+setActionBar(toolbar);
+//v7包的Toolbar使用setSupportActionBar(toolbar)方法设置
+```
+
 ### 方法
-- ````：
-- ````：
-- ````：
-- ````：
-- ````：
-- ````：
-- ````：
+- ``setBackgroundColor(int color)``：设置Toolbar背景颜色
+- ``setNavigationIcon(int resId)``：设置导航按钮图标
+- ``setNavigationOnClickListener(OnClickListener listener)``：给导航图标设置监听事件
+	- 注意：该方法应该在``setActionBar()``后调用，之前调用的话监听事件不生效
+- ``setLogo(int resId)``：设置Logo
+- ``setTitle(CharSequence title)``：设置标题
+- ``setSubTitle(CharSequence subTitle)``：设置子标题
+- ``getMenu()``：获得菜单
+- ``inflateMenu(int resId)``：设置菜单
+	- 注意：该方法必须在没有``setActionBar()``等方法时才生效
+	- 重写Activity的``onCreateOptionsMenu(Menu menu)``方法也可以设置菜单，该方法必须调用``setActionBar()``等方法将Toolbar设置为原来的ActionBar时才生效
+- ``setOnMenuItemClickListener(OnMenuItemClickListener listener)``：设置菜单选项点击事件
+	- 注意：该方法应该在``setActionBar()``后调用，之前调用的话监听事件不生效
+	- 重写Activity的``onOptionsItemSelected(Menu menu)``方法也可以设置菜单选项监听事件，该方法必须调用``setActionBar()``等方法将Toolbar设置为原来的ActionBar时才生效
+
+
+
 
 ### 注意
 - 我们在使用Toolbar时候需要先隐藏掉系统原先的导航栏，网上很多人都说给Activity设置一个NoActionBar的Theme。但个人觉得有点小题大做了，所以这里我直接在BaseActivity中调用 ``supportRequestWindowFeature(Window.FEATURE_NO_TITLE)``去掉了默认的导航栏（注意，我的BaseActivity是继承了AppCompatActivity的，如果是继承Activity就应该调用 ``requestWindowFeature(Window.FEATURE_NO_TITLE)``)
