@@ -199,7 +199,109 @@ setActionBar(toolbar);
 
 
 ## NavigationView
+导航目录，由左向右滑出
 
+### 使用
+1. 创建头部
+	
+	```
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="50dp"
+    android:orientation="horizontal">
+	    <ImageView
+	        android:id="@+id/img"
+	        android:layout_width="100dp"
+	        android:layout_height="100dp"
+	        android:clickable="true"
+	        android:src="@drawable/img_01" />
+	    <TextView
+	        android:id="@+id/head"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:clickable="true"
+	        android:text="头像"
+	        android:textSize="40sp" />
+	</LinearLayout>
+	```
+	
+2. 创建菜单
+	
+	```
+	<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	    <group android:checkableBehavior="single">
+	        <item
+	            android:id="@+id/drawer_home"
+	            android:checked="true"
+	            android:icon="@drawable/ic_home_black_24dp"
+	            android:title="@string/home"/>
+	        <item
+	            android:id="@+id/drawer_favourite"
+	            android:icon="@drawable/ic_favorite_black_24dp"
+	            android:title="@string/favourite"/>
+	        ...
+	        <item
+	            android:id="@+id/drawer_settings"
+	            android:icon="@drawable/ic_settings_black_24dp"
+	            android:title="@string/settings"/>
+	    </group>
+	</menu>
+	```
+	
+3. 设置NavigationView
+	
+	```
+	<android.support.design.widget.NavigationView
+	    android:id="@+id/navigationView"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_gravity="left|start"
+	    app:headerLayout="@layout/header"
+	    app:menu="@menu/item">
+	</android.support.design.widget.NavigationView>
+	```
+
+### 属性
+- ``app:headerLayout=""``：设置头部视图
+- ``app:menu=""``：设置菜单
+
+### 注意
+- NavigationView必须配合DrawerLayout使用才能达到由左向右滑出的效果
+- 必须设置``android:layout_gravity="left或start"``属性，NavigationView才能隐藏在左侧，同理，设置``right或end``时，隐藏在右侧
+
+***
+
+## DrawerLayout
+### 使用
+
+```
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.serenade.serenademusic.view.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@drawable/img_02"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/item">
+    </android.support.design.widget.NavigationView>
+</android.support.v4.widget.DrawerLayout>
+```
 
 ***
 
