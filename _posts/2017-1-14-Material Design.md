@@ -157,6 +157,15 @@ snackbarLayout.addView(add_view,index,p);
 	
 ## FloatingActionButton
 
+### 使用
+
+```
+<android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:src="@drawable/ic_discuss"/>
+```
 
 ***
 
@@ -210,12 +219,14 @@ setActionBar(toolbar);
     android:layout_height="match_parent"
     android:paddingTop="50dp"
     android:orientation="horizontal">
+	    
 	    <ImageView
 	        android:id="@+id/img"
 	        android:layout_width="100dp"
 	        android:layout_height="100dp"
 	        android:clickable="true"
 	        android:src="@drawable/img_01" />
+	    
 	    <TextView
 	        android:id="@+id/head"
 	        android:layout_width="wrap_content"
@@ -223,6 +234,7 @@ setActionBar(toolbar);
 	        android:clickable="true"
 	        android:text="头像"
 	        android:textSize="40sp" />
+	        
 	</LinearLayout>
 	```
 	
