@@ -58,7 +58,7 @@ ActionBar是Android3.0之后出现的，在Android3.0之前叫TitleBar，显示�
 			1. 在菜单页面中，通过``android:actionViewClass="android.widget.SearchView"``引用
 			2. 在Activity的``onCreateOptionsMenu()``方法中：
          	
-				```
+				```java
 				//得到SearchView所在的菜单Item
 				MenuItem item = menu.findItem(R.id.***);
 				//通过菜单Item对象，得到SearchView控件
@@ -72,7 +72,7 @@ ActionBar是Android3.0之后出现的，在Android3.0之前叫TitleBar，显示�
 			1. 在菜单页面中, 通过``android:actionLayout="@layout/****"``引用
 			2. 在Activity的``onCreateOptionsMenu()``方法中:
 		  		
-		  		```
+		  		```java
 		  		//得到View所在的菜单Item
 				MenuItem item = menu.findItem(R.id.****);
 				//通过菜单Item对象, 得到view控件
@@ -89,7 +89,7 @@ ActionBar是Android3.0之后出现的，在Android3.0之前叫TitleBar，显示�
 
 1. 得到ActionBar对象，并且设置导航模式为``TABS``
 
-	```
+	```java
 	ActionBar actionBar = getActionBar();
 	/**
 	 * mode  模式
@@ -102,7 +102,7 @@ ActionBar是Android3.0之后出现的，在Android3.0之前叫TitleBar，显示�
 
 2. 让当前类实现``TabListener``接口，重写3个方法
 
-	```
+	```java
 	@Override
 	public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
 	    //TODO 选择Tab的事件
@@ -121,7 +121,7 @@ ActionBar是Android3.0之后出现的，在Android3.0之前叫TitleBar，显示�
 
 3. 创建每个Tab项，并且增加到actionBar中
 
-	```
+	```java
 	ActionBar.Tab tab = actionBar.newTab();
 	tab.setText("新闻");//设置显示的文字
 	tab.setIcon(R.mipmap.ic_launcher);//设置显示的图标

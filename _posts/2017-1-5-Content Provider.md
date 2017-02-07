@@ -71,14 +71,17 @@ comments: true
         ```xml
         <provider
         android:name="com.example.android_day14_contentprovider_01.MyProvider"  
-        //Uri 中间部分需要声明  
-        //在同一个手机中，中间部分不能相同
+        <!--Uri 中间部分需要声明-->
+        <!--在同一个手机中，中间部分不能相同-->
         android:authorities="com.example.myprovider.provider"
-        //是否支持其他程序访问
+        <!--是否支持其他程序访问-->
         android:exported="true"
-        android:permission=""      读写权限
-        android:readPermission=""  读权限
-        android:writePermission="" 写权限>
+        <!--读写权限-->
+        android:permission=""      
+        <!--读权限-->
+        android:readPermission=""  
+        <!--写权限-->
+        android:writePermission="" >
         ```
         
     - 自定义权限

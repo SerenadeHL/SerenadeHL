@@ -30,7 +30,7 @@ CoordinatorLayout是design包里功能强大的一个控件,搭配上其他的�
 ### 注意
 - CoordinatorLayout包含的子视图中带有滚动属性的View需要设置``app:layout_behavior``属性
 
-	```
+	```xml
 	app:layout_behavior="@string/appbar_scrolling_view_behavior"
 	```
 
@@ -39,7 +39,7 @@ CoordinatorLayout是design包里功能强大的一个控件,搭配上其他的�
 ## Snackbar
 ![](http://i1.piimg.com/567571/495ccc6f9c38875a.png)
 
-```
+```java
 Snackbar snackbar = Snackbar.make(view,"哈哈哈",Snackbar.LENGTH_SHORT);
 snackbar.setAction("弹出Toast", new View.OnClickListener() {
     @Override
@@ -49,6 +49,7 @@ snackbar.setAction("弹出Toast", new View.OnClickListener() {
 });
 snackbar.show();
 ```
+
 ### 方法
 - ``make(View view, CharSequence text, int duration)``：生成Snackbar消息
 - ``setAction(CharSequence text, OnClickListener listener)``：设置action
@@ -63,7 +64,7 @@ snackbar.show();
 - 使用了DecorView作为第一个参数后，如果设备中没有虚拟按键，显示效果会很好，但是如果是华为、Nexus等有虚拟按键的设备，SnackBar会被虚拟按键挡住，这里有以下两种解决办法
 	1. 计算虚拟按键的高度，使SnackBar在其上方弹出
 		
-		```
+		```java
 		/**
 		 * 获取屏幕原始尺寸高度，包括虚拟功能键高度
 		 */
@@ -108,7 +109,7 @@ snackbar.show();
 		
 	2. 弹出SnackBar的同时，隐藏虚拟按键；消失SnackBar的同时显示虚拟按键
 		
-		```
+		```java
 		//隐藏虚拟按键  
        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION  
                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION //隐藏虚拟按键栏  
@@ -121,7 +122,7 @@ snackbar.show();
 ### 自定义SnackBar
 Snackbar的view是由SnackbarLayout实现的，而SnackbarLayout是继承自LinearLayout，所以我们可以自定义布局来实现自定义SnackBar
 
-```
+```java
 //获取snackbar的View(其实就是SnackbarLayout)
 View snackbarview = snackbar.getView();
 //将获取的View转换成SnackbarLayout
@@ -149,7 +150,7 @@ snackbarLayout.addView(add_view,index,p);
 
 - DecorView对象获得方法
 
-	```
+	```java
 	getWindow().getDecorView();
 	```
 
@@ -159,7 +160,7 @@ snackbarLayout.addView(add_view,index,p);
 
 ### 使用
 
-```
+```xml
 <android.support.design.widget.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -173,7 +174,7 @@ snackbarLayout.addView(add_view,index,p);
 
 ### 使用
 
-```
+```java
 Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 setActionBar(toolbar);
 //v7包的Toolbar使用setSupportActionBar(toolbar)方法设置
@@ -213,7 +214,7 @@ setActionBar(toolbar);
 ### 使用
 1. 创建头部
 	
-	```
+	```xml
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -240,7 +241,7 @@ setActionBar(toolbar);
 	
 2. 创建菜单
 	
-	```
+	```xml
 	<menu xmlns:android="http://schemas.android.com/apk/res/android">
 	    <group android:checkableBehavior="single">
 	        <item
@@ -263,7 +264,7 @@ setActionBar(toolbar);
 	
 3. 设置NavigationView
 	
-	```
+	```xml
 	<android.support.design.widget.NavigationView
 	    android:id="@+id/navigationView"
 	    android:layout_width="match_parent"
@@ -287,7 +288,7 @@ setActionBar(toolbar);
 ## DrawerLayout
 ### 使用
 
-```
+```xml
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

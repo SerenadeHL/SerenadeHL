@@ -28,7 +28,7 @@ comments: true
 			- action：``Intent.ACTION_BATTERY_CHANGED``
 			- 静态注册：``<action android:name="android.intent.action.BATTERY_CHANGED"/>``
 				
-				```
+				```java
 				//1. 得到当前的系统电量等级
 				int level = intent.getIntExtra("level", 100);
 				//2. 得到系统总电量
@@ -43,7 +43,7 @@ comments: true
 			- 静态注册：``<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />``
 			- 权限：``<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />``
 				
-				```
+				```java
 				//1. 获取链接管理器
 				ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 				//2. 获取网络状态
@@ -74,7 +74,7 @@ comments: true
 			- 静态注册：``<action android:name="android.intent.action.PHONE_STATE" />``
 			- 权限：``<uses-permission android:name="android.permission.READ_PHONE_STATE"/>``
 				
-				```
+				```java
 				//1. 获取电话管理器对象
 				TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 				//2. 获得来电号码
@@ -103,7 +103,7 @@ comments: true
 			- 静态监测：``<action android:name="android.provider.Telephony.SMS_RECEIVED" />``
 			- 权限：``<uses-permission android:name="android.permission.RECEIVE_SMS" />``
 				
-				```
+				```java
 				//1. 获取Bundle对象
 				Bundle bundle = intent.getExtras();
 				//2. 获取短信Object数组
@@ -135,25 +135,25 @@ comments: true
 		- 步骤
 			1. 得到Intent意图对象
 
-				```
+				```java
 				Intent intent = new Intent();
 				```
 				
 			2. 添加频道
 			
-				```
+				```java
 				intent.setAction("this.is.a.boradcast");
 				```
 				
 			3. 添加传递信息
 			 
-				```
+				```java
 				intent.putExtra("msg","这是一条广播");
 				```
 				
 			4. 发送广播
 				
-				```
+				```java
 				context.sendBroadcast(Intent intent);
 				```
 		
@@ -167,25 +167,25 @@ comments: true
 		- 步骤
 			1. 得到Intent意图对象
 
-				```
+				```java
 				Intent intent = new Intent();
 				```
 				
 			2. 添加频道
 			
-				```
+				```java
 				intent.setAction("this.is.a.boradcast");
 				```
 				
 			3. 添加传递信息
 			 
-				```
+				```java
 				intent.putExtra("msg","这是一条广播");
 				```
 				
 			4. 发送广播
 				
-				```
+				```java
 				/**
 				 * intent				intent对象
 				 * receiverPermisson	权限
@@ -195,7 +195,7 @@ comments: true
 			
 			5. 拦截广播
 				
-				```
+				```java
 				abortBroadcast();
 				```
 
@@ -205,13 +205,13 @@ comments: true
 # 接收广播
 1. 定义一个类，继承BroadcastReceiver
 	
-	```
+	```java
 	public class MyReceiver extends BroadcastReceiver
 	```
 	
 2. 重写父类的``onReceive(Context context, Intent intent)``方法
 	
-	```
+	```java
 	@Override
 	public void onReceive(Context context, Intent intent) {
 	    String msg = intent.getStringExtra("msg");
@@ -224,7 +224,7 @@ comments: true
 		
 		- 在清单文件中注册``<receiver/>``节点
 		
-			```
+			```xml
 			<!--静态方式注册广播接收者，android:name指定当前注册的是哪个接收者，全类名-->
 	        <receiver android:name=".MyReceiver">
 	            <intent-filter>
@@ -239,7 +239,7 @@ comments: true
 	2. 动态注册
 		- 在Activity的``onCreate()``方法中注册
 		
-			```
+			```java
 			//得到过滤对象
 			IntentFilter filter = new IntentFilter();
 			//添加过滤信息
@@ -251,7 +251,7 @@ comments: true
 			
 		- 在Activity的``onDestory()``方法中解除注册
 			
-			```
+			```java
 			unregisterReceiver(recevier);
 			```
 			

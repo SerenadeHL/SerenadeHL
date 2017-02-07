@@ -38,7 +38,7 @@ comments: true
 	2. 在代码中增加要显示的数据源
 	3. 创建Adapter继承FragmentPagerAdapter并重写四个方法
 
-        ```
+        ```java
         @Override
         public int getCount() {
             //TODO 返回ViewPager中显示数据的数量
@@ -68,7 +68,7 @@ comments: true
         
     4. 在代码中，定义适配器，并且设置适配器
 
-        ```
+        ```java
         MyAdapter adapter = new MyAdapter(data, this);
         viewPager.setAdapter(adapter);
         ```

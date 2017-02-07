@@ -41,13 +41,13 @@ comments: true
 - 普通通知
 	1. 得到通知管理器对象NotificationManager
 		
-		```
+		```java
 		NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		```
 		
 	2. 构建通知
 		
-		```
+		```java
 		NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 		builder.set***();
 		Notification notification = builder. build();
@@ -55,7 +55,7 @@ comments: true
 		
 	3. 发送通知
 		
-		```
+		```java
 		/**
 		 * id			通知的Id(可以为任意数字，但是必须是唯一的)
 		 * notification		通知
@@ -66,13 +66,13 @@ comments: true
 - 进度条通知
 	1. 得到通知管理器对象NotificationManager
 		
-		```
+		```java
 		NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		```
 		
 	2. 构建通知
 		
-		```
+		```java
 		NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 		builder.set***();
 		/**
@@ -86,7 +86,7 @@ comments: true
 		
 	3. 发送通知
 		
-		```
+		```java
 		/**
 		 * id			通知的Id(可以为任意数字，但是必须是唯一的)
 		 * notification		通知
@@ -97,13 +97,13 @@ comments: true
 - 列表通知
 	1. 得到通知管理器对象NotificationManager
 		
-		```
+		```java
 		NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		```
 		
 	2. 构建通知
 		
-		```
+		```java
 		NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 		builder.set***();
 		//实例化列表通知的样式
@@ -116,7 +116,7 @@ comments: true
 		
 	3. 发送通知
 		
-		```
+		```java
 		/**
 		 * id			通知的Id(可以为任意数字，但是必须是唯一的)
 		 * notification		通知
@@ -127,13 +127,13 @@ comments: true
 - 大图片的通知
 	1. 得到通知管理器对象NotificationManager
 		
-		```
+		```java
 		NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		```
 		
 	2. 构建通知
 		
-		```
+		```java
 		NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 		builder.set***();
 		//实例化大图片通知的样式
@@ -146,7 +146,7 @@ comments: true
 		
 	3. 发送通知
 		
-		```
+		```java
 		/**
 		 * id			通知的Id(可以为任意数字，但是必须是唯一的)
 		 * notification		通知
@@ -157,13 +157,13 @@ comments: true
 - 自定义通知
 	1. 得到通知管理器对象NotificationManager
 		
-		```
+		```java
 		NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		```
 		
 	2. 构建通知
 		
-		```
+		```java
 		NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 		builder.set***();
 		/**
@@ -180,7 +180,7 @@ comments: true
 		
 	3. 发送通知
 		
-		```
+		```java
 		/**
 		 * id			通知的Id(可以为任意数字，但是必须是唯一的)
 		 * notification		通知
