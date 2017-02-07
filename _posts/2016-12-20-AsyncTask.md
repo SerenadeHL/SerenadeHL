@@ -26,33 +26,44 @@ comments: true
 - 创建一个子线程！重写内部的run方法
 - 在子线程中进行耗时操作！I/O网络请求、SDcard、数据库遍历！
 - 主线程中创建一个Handler
-```
-Handler handler = new Handler(){
-public void handleMessage(Message msg){
-}
-}
-```
+
+	```java
+	Handler handler = new Handler(){
+		@Override
+		public void handleMessage(Message msg){
+		
+		}
+	}
+	```
+
 - 在子线程完成耗时操作的地方，创建一个Message
-```
-Message msg = new Message()
-```
+
+	```java
+	Message msg = new Message()
+	```
+
 - 子线程调用发信的方法
-```
-handler.sendMessage(msg)
-```
+	
+	```java
+	handler.sendMessage(msg)
+	```
+	
 - 主线程处理返回数据的方法
-```
-handleMessage(Message msg)
-```
+	
+	```java
+	handleMessage(Message msg)
+	```
 
 # AsyncTask是什么？
 使用子线程执行耗时的操作，通过回调方法把结果返回给主线程，AsyncTask较传统的线程不同的是！它在Android中，使用的是线程+Handler结合成的一个类！使用异步任务，不用再自己写Handler、Message进行线程间通信！直接可以在异步任务类的指定方法中，进行UI控件的更新！
 
 # 如何使用AsyncTask
 1. 定义一个类，继承AsyncTask，同时声明3个泛型
-```
-public class myTask extends AsyncTask<Params,Progress,Result>
-```
+	
+	```java
+	public class myTask extends AsyncTask<Params,Progress,Result>
+	```
+	
 	- ``Params``：子线程执行任务的请求参数，通常是一个String
 	- ``Progress``：子线程执行任务的进度，通常是一个Integer
 	- ``Result``：子线程执行任务的结果返回类型，根据具体需求而定

@@ -28,8 +28,10 @@ ListView --> AbsListView --> AdapterView
 # 指示器的状态图片
 - state_expanded：是否是展开状态，注意，该属性在XML中不会提示！但是存在！需要手动写！！
 
-    <item android:drawable="@drawable/bottom" android:state_expanded="true"></item>
-    <item android:drawable="@drawable/right"></item>
+	```xml
+	<item android:drawable="@drawable/bottom" android:state_expanded="true" />
+   <item android:drawable="@drawable/right" />
+	```
 
 # ExpandableListView使用特定的Adapter
 实现ExpandableAdapter的三种方式
@@ -39,11 +41,14 @@ ListView --> AbsListView --> AdapterView
 3. 使用SimpleCursorTreeAdapter将Cursor中的数据包装成SimpleCuroTreeAdapter 本节示例使用的是第一个，扩展BaseExpandableListAdpter，我们需要重写该类中的相关方法。
 
 # ExpandableListView需要数据类型的问题
-- 组的数据   List<String>
-- 子的数据   List<List<String>>
+- 组的数据
+	- ``List<String>``
+- 子的数据
+	- ``List<List<String>>``
 
 # ExpandableListView的监听事件
-```
+
+```java
 elv.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
     @Override
     public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {

@@ -48,7 +48,7 @@ comments: true
         - 开发者通常通过追加指向单个表的路径来根据权限创建内容URI。例如，如果您有两个表：table1和table2，则可以通过合并上一示例中的权限来生成内容URI：com.example.appname.provider/table1和com.example.appname.provider/table2。路径并不限定于单个段，也无需为每一级路径都创建一个表。
     - 创建静态代码块，给匹配器添加匹配Uri
 
-        ```
+        ```java
         //优先执行
         static{
             //创建对象不匹配
@@ -57,7 +57,9 @@ comments: true
             matcher.addURI(AUTHORITY, tableName, CODE);
         }
         ```
+        
         其中AUTHORITY为常量字符串，CODE为常量整数，二者都为全局变量，AUTHORITY为`content://authority/`,CODE用于与完整Uri对应，方便使用switch语句判断
+        
     - 重写操作方法
         - ``query()``、``insert()``、``update()``、``delete()``
         - 匹配器 匹配传递过来的Uri 区分操作表
@@ -66,7 +68,7 @@ comments: true
              SQLiteDataBase 操作数据库
     - 声明ContentProvider
 
-        ```
+        ```xml
         <provider
         android:name="com.example.android_day14_contentprovider_01.MyProvider"  
         //Uri 中间部分需要声明  
@@ -78,10 +80,11 @@ comments: true
         android:readPermission=""  读权限
         android:writePermission="" 写权限>
         ```
+        
     - 自定义权限
         - 权限就是一个字符串！但是这个字符串必须声明！
         
-	        ```
+	        ```xml
 	        <permission
 	        android:name="this is a permission"
 	         android:label="这是自定义权限的说明"
