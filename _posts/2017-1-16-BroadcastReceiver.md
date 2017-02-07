@@ -65,10 +65,6 @@ comments: true
 			- 静态注册：``<action android:name="android.intent.action.NEW_OUTGOING_CALL"/>``
 			- 权限：``<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />``
 				
-				```
-				
-				```
-				
 		- 监测来电状态(静态注册)
 			- action：``android.intent.action.PHONE_STATE``
 			- 静态注册：``<action android:name="android.intent.action.PHONE_STATE" />``
