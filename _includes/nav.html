@@ -1,17 +1,17 @@
-	<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
-		<button class="dl-trigger">Open Menu</button>
-		<ul class="dl-menu">
-			<li><a href="{{ site.url }}/">Home</a></li>
-			<li>
-				<a href="#">About</a>
-				<ul class="dl-submenu">
-					<li>
-						<img src="{{ site.url }}/{{ site.logo_about }}" alt="{{ site.title }} photo" class="author-photo">
-						<h4>{{ site.title }}</h4>
-						<p>{{ site.description }}</p>
-					</li>
-					<li><a href="{{ site.url }}/about/"><span class="btn btn-inverse">Learn More</span></a></li>
-					{% if site.email %}<li>
+    <nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+        <button class="dl-trigger">Open Menu</button>
+        <ul class="dl-menu">
+            <li><a href="{{ site.url }}/">Home</a></li>
+            <li>
+                <a href="#">About</a>
+                <ul class="dl-submenu">
+                    <li>
+                        <img src="{{ site.url }}/{{ site.logo }}" alt="{{ site.title }} photo" class="author-photo">
+                        <h4>{{ site.title }}</h4>
+                        <p>{{ site.description }}</p>
+                    </li>
+                    <li><a href="{{ site.url }}/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+                    {% if site.email %}<li>
                         <a href="mailto:{{ site.email }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-envelope-square"></i> Email</a>
                     </li>{% endif %}
                     {% if site.twitter %}<li>
@@ -59,6 +59,9 @@
                     {% if site.youtube %}<li>
                         <a href="https://youtube.com/user/{{ site.youtube }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-youtube-square"></i> Youtube</a>
                     </li>{% endif %}
+                    {% if site.youtube-channel %}<li>
+                        <a href="https://youtube.com/channel/{{ site.youtube-channel }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-youtube"></i> Youtube</a>
+                    </li>{% endif %}
                     {% if site.soundcloud %}<li>
                         <a href="http://soundcloud.com/{{ site.soundcloud }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-soundcloud"></i> SoundCloud</a>
                     </li>{% endif %}
@@ -74,31 +77,28 @@
                     {% if site.keybase %}<li>
                         <a href="https://keybase.io/{{ site.keybase }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-key"></i> Keybase</a>
                     </li>{% endif %}
-                    <!-- {% if site.coding %}<li>
-                        <a href="https://coding.net/u/{{ site.coding }}" target="_blank" rel="noopener noreferrer"><img src="http://www.easyicon.net/api/resizeApi.php?id=1188651&size=48" height="8" width="5" /> Coding</a> -->
-                    </li>{% endif %}
                     {% if site.xmpp %}<li>
                         <a href="xmpp:{{ site.xmpp }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-lightbulb-o"></i> XMPP</a>
                     </li>{% endif %}
                     {% if site.hackernews %}<li>
                         <a href="https://news.ycombinator.com/user?id={{ site.hackernews }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-hacker-news"></i> Hacker News</a>
                     </li>{% endif %}
-				</ul><!-- /.dl-submenu -->
-			</li>
-			<li>
-				<a href="#">Posts</a>
-				<ul class="dl-submenu">
-					<li><a href="{{ site.url }}/posts/">All Posts</a></li>
-					<li><a href="{{ site.url }}/tags/">All Tags</a></li>
-				</ul>
-			</li>
-			{% for link in site.data.navigation %}
-		    {% if link.url contains 'http' %}
-		        {% assign domain = '' %}
-		        {% else %}
-		        {% assign domain = site.url %}
-		    {% endif %}
-		    <li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ link.title }}</a></li>
-		  {% endfor %}
-		</ul><!-- /.dl-menu -->
-	</nav><!-- /.dl-menuwrapper -->
+                </ul><!-- /.dl-submenu -->
+            </li>
+            <li>
+                <a href="#">Posts</a>
+                <ul class="dl-submenu">
+                    <li><a href="{{ site.url }}/posts/">All Posts</a></li>
+                    <li><a href="{{ site.url }}/tags/">All Tags</a></li>
+                </ul>
+            </li>
+            {% for link in site.data.navigation %}
+            {% if link.url contains 'http' %}
+                {% assign domain = '' %}
+                {% else %}
+                {% assign domain = site.url %}
+            {% endif %}
+            <li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ link.title }}</a></li>
+          {% endfor %}
+        </ul><!-- /.dl-menu -->
+    </nav><!-- /.dl-menuwrapper -->
