@@ -14,18 +14,18 @@ pre.highlight {
 		padding: 1em;
 	}
 	.lineno            { padding-right: 24px; color: lighten(#49483e,50);}
-	.hll               { background-color: #49483e}
-	.c                 { color: #75715e }                            /* Comment                     */
+	.hll               { background-color: #222222}
+	.c                 { color: #84C1FF }                            /* Comment                     */
 	.err               { color: #960050; background-color: #1e0010 } /* Error                       */
 	.k                 { color: #66d9ef }                            /* Keyword                     */
 	.l                 { color: #ae81ff }                            /* Literal                     */
 	.n                 { color: #f8f8f2 }                            /* Name                        */
-	.o                 { color: #f92672 }                            /* Operator                    */
+	.o                 { color: #f92672 }                            /* Op                                                                    erator                    */
 	.p                 { color: #f8f8f2 }                            /* Punctuation                 */
-	.cm                { color: #75715e }                            /* Comment.Multiline           */
-	.cp                { color: #75715e }                            /* Comment.Preproc             */
-	.c1                { color: #75715e }                            /* Comment.Single              */
-	.cs                { color: #75715e }                            /* Comment.Special             */
+	.cm                { color: #84C1FF }                            /* Comment.Multiline           */
+	.cp                { color: #84C1FF }                            /* Comment.Preproc             */
+	.c1                { color: #84C1FF }                            /* Comment.Single              */
+	.cs                { color: #84C1FF }                            /* Comment.Special             */
 	.ge                { font-style: italic }                        /* Generic.Emph                */
 	.gs                { font-weight: bold }                         /* Generic.Strong              */
 	.kc                { color: #66d9ef }                            /* Keyword.Constant            */
