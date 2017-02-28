@@ -12,7 +12,6 @@ comments: true
 >
 >在Android 5.0后引进的，需要导入support-v7包进行使用
 
-## 1
 - 控制显示的方式，通过布局管理器：LayoutManager
 	- ``LinearLayoutManager``：ListView方式显示数据
 	- ``StaggeredGridLayoutManager``：瀑布流方式显示数据
@@ -22,10 +21,15 @@ comments: true
 
 ## 使用方式
 1. 导入依赖
+	
+	```
+	compile 'com.android.support:recylerview-v7:23.3.0'
+	```
+	
 2. 在布局页面中引入``<android.support.v7.widget.RecylerView/>``
 3. 在代码中：
 	1. 初始化数据源
 	2. 定义适配器
 		- 继承RecylerView.Adapter<继承RecylerView.ViewHolder>
 		- 重写父类方法
-	3. 声明布局管理器LayoutManager
+	3. 声明布局管理器LayoutManager并设置给RecylerView

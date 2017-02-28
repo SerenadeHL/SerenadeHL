@@ -24,5 +24,3 @@ comments: true
 
 # WebChromeClient
 webView处理界面功能的，如进度条
-
-4, WebSettings:  webView 设置的
